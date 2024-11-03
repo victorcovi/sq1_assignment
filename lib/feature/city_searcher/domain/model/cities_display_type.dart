@@ -1,0 +1,4 @@
+enum CitiesDisplayType {
+  list,
+  map,
+}

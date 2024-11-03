@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
+import 'package:sq1_assignment/di/service_locator.dart';
 
 class AppBlocObserver extends BlocObserver {
   const AppBlocObserver();
@@ -28,6 +29,8 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   Bloc.observer = const AppBlocObserver();
 
   // Add cross-flavor configuration here
+
+  await serviceLocatorSetUp();
 
   runApp(await builder());
 }

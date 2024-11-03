@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sq1_assignment/counter/counter.dart';
 import 'package:sq1_assignment/l10n/l10n.dart';
 
 class App extends StatelessWidget {
@@ -8,6 +7,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         appBarTheme: AppBarTheme(
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -16,7 +16,7 @@ class App extends StatelessWidget {
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const CounterPage(),
+      // home: const CounterPage(),
     );
   }
 }
