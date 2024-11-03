@@ -18,6 +18,7 @@ class CitySearcherState with _$CitySearcherState {
     required CitySearcherStatus status,
     @Default([]) List<City> cities,
     @Default(PaginationMeta()) PaginationMeta meta,
+    @Default('') String query,
     String? message,
   }) = _CitySearcherState;
 }
