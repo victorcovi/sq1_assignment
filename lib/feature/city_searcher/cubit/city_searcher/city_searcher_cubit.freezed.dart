@@ -20,6 +20,7 @@ mixin _$CitySearcherState {
   List<City> get cities => throw _privateConstructorUsedError;
   PaginationMeta get meta => throw _privateConstructorUsedError;
   String get query => throw _privateConstructorUsedError;
+  CitiesDisplayType get displayType => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
 
   /// Create a copy of CitySearcherState
@@ -40,6 +41,7 @@ abstract class $CitySearcherStateCopyWith<$Res> {
       List<City> cities,
       PaginationMeta meta,
       String query,
+      CitiesDisplayType displayType,
       String? message});
 }
 
@@ -62,6 +64,7 @@ class _$CitySearcherStateCopyWithImpl<$Res, $Val extends CitySearcherState>
     Object? cities = null,
     Object? meta = null,
     Object? query = null,
+    Object? displayType = null,
     Object? message = freezed,
   }) {
     return _then(_value.copyWith(
@@ -81,6 +84,10 @@ class _$CitySearcherStateCopyWithImpl<$Res, $Val extends CitySearcherState>
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
               as String,
+      displayType: null == displayType
+          ? _value.displayType
+          : displayType // ignore: cast_nullable_to_non_nullable
+              as CitiesDisplayType,
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -102,6 +109,7 @@ abstract class _$$CitySearcherStateImplCopyWith<$Res>
       List<City> cities,
       PaginationMeta meta,
       String query,
+      CitiesDisplayType displayType,
       String? message});
 }
 
@@ -122,6 +130,7 @@ class __$$CitySearcherStateImplCopyWithImpl<$Res>
     Object? cities = null,
     Object? meta = null,
     Object? query = null,
+    Object? displayType = null,
     Object? message = freezed,
   }) {
     return _then(_$CitySearcherStateImpl(
@@ -141,6 +150,10 @@ class __$$CitySearcherStateImplCopyWithImpl<$Res>
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
               as String,
+      displayType: null == displayType
+          ? _value.displayType
+          : displayType // ignore: cast_nullable_to_non_nullable
+              as CitiesDisplayType,
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -157,6 +170,7 @@ class _$CitySearcherStateImpl implements _CitySearcherState {
       final List<City> cities = const [],
       this.meta = const PaginationMeta(),
       this.query = '',
+      this.displayType = CitiesDisplayType.list,
       this.message})
       : _cities = cities;
 
@@ -178,11 +192,14 @@ class _$CitySearcherStateImpl implements _CitySearcherState {
   @JsonKey()
   final String query;
   @override
+  @JsonKey()
+  final CitiesDisplayType displayType;
+  @override
   final String? message;
 
   @override
   String toString() {
-    return 'CitySearcherState(status: $status, cities: $cities, meta: $meta, query: $query, message: $message)';
+    return 'CitySearcherState(status: $status, cities: $cities, meta: $meta, query: $query, displayType: $displayType, message: $message)';
   }
 
   @override
@@ -194,12 +211,20 @@ class _$CitySearcherStateImpl implements _CitySearcherState {
             const DeepCollectionEquality().equals(other._cities, _cities) &&
             (identical(other.meta, meta) || other.meta == meta) &&
             (identical(other.query, query) || other.query == query) &&
+            (identical(other.displayType, displayType) ||
+                other.displayType == displayType) &&
             (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status,
-      const DeepCollectionEquality().hash(_cities), meta, query, message);
+  int get hashCode => Object.hash(
+      runtimeType,
+      status,
+      const DeepCollectionEquality().hash(_cities),
+      meta,
+      query,
+      displayType,
+      message);
 
   /// Create a copy of CitySearcherState
   /// with the given fields replaced by the non-null parameter values.
@@ -217,6 +242,7 @@ abstract class _CitySearcherState implements CitySearcherState {
       final List<City> cities,
       final PaginationMeta meta,
       final String query,
+      final CitiesDisplayType displayType,
       final String? message}) = _$CitySearcherStateImpl;
 
   @override
@@ -227,6 +253,8 @@ abstract class _CitySearcherState implements CitySearcherState {
   PaginationMeta get meta;
   @override
   String get query;
+  @override
+  CitiesDisplayType get displayType;
   @override
   String? get message;
 

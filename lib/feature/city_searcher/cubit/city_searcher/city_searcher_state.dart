@@ -16,6 +16,7 @@ enum CitySearcherStatus {
 class CitySearcherState with _$CitySearcherState {
   const factory CitySearcherState({
     required CitySearcherStatus status,
+    @Default(CitiesDisplayType.list) CitiesDisplayType displayType,
     @Default([]) List<City> cities,
     @Default(PaginationMeta()) PaginationMeta meta,
     @Default('') String query,

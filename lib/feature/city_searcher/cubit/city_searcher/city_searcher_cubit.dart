@@ -14,6 +14,10 @@ class CitySearcherCubit extends Cubit<CitySearcherState> {
 
   final CitySearcherRepository _repository;
 
+  void changeDisplayType(CitiesDisplayType type) {
+    emit(state.copyWith(displayType: type));
+  }
+
   void newSearch(String query) {
     if (query == state.query || query.isEmpty) return;
     emit(const CitySearcherState(status: CitySearcherStatus.initial));
