@@ -1,1 +1,1 @@
-export 'city_search/city_search_cubit.dart';
+export 'city_search_cubit/city_search_cubit.dart';
