@@ -27,7 +27,11 @@ git clone https://github.com/youcardscollection/YouCards_app.git
 flutter pub get
 ```
 
-### Setup environment folder in project root
+### Setup environments and secrets
+
+Create the **environment** folder in the project root and define 3 files inside of it corresponding to the 3 different flavours.
+
+Also define a **secret.properties** file inside the android directory.
 
 ```
 sq1_assignment
