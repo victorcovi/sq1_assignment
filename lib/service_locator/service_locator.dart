@@ -7,11 +7,16 @@ final locator = GetIt.instance;
 Future<void> serviceLocatorSetUp() async {
   locator
     ..registerSingletonAsync<Square1ApiClient>(Square1ApiClient.create)
-    ..registerLazySingleton<CitySearchRepository>(
-      () => MockCitySearchRepository(
+    ..registerSingletonAsync<GoogleMapsApiClient>(GoogleMapsApiClient.create)
+    ..registerSingletonWithDependencies<CitySearchRepository>(
+      () => ApiCitySearchRepository(
         square1Client: locator<Square1ApiClient>(),
+        googleMapsApiClient: locator<GoogleMapsApiClient>(),
       ),
+      dependsOn: [Square1ApiClient, GoogleMapsApiClient],
     );
+
+  await locator.allReady();
 }
 
 void serviceLocatorDispose() {

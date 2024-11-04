@@ -22,15 +22,41 @@ class _CitySearchView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('City Search'),
-      ),
-      backgroundColor: Colors.white,
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () => context.read<CitySearchCubit>().newCitySearch('keb'),
-          child: const Text('Get Cities'),
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('City Search'),
+          bottom: const TabBar(
+            tabs: [
+              Tab(icon: Icon(Icons.list)),
+              Tab(icon: Icon(Icons.map_outlined)),
+            ],
+          ),
+        ),
+        backgroundColor: Colors.white,
+        body: Column(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(12),
+              child: SearchTextBar(
+                elevation: 2,
+                hintText: 'Search for cities',
+                onSubmitted: (value) {
+                  context.read<CitySearchCubit>().newCitySearch(value);
+                },
+              ),
+            ),
+            const Expanded(
+              child: TabBarView(
+                physics: NeverScrollableScrollPhysics(),
+                children: [
+                  CityList(),
+                  CitiesMap(),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );

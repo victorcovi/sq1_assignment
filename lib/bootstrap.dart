@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
+import 'package:sq1_assignment/network_service/network_service.dart';
 import 'package:sq1_assignment/service_locator/service_locator.dart';
 
 class AppBlocObserver extends BlocObserver {
@@ -31,6 +32,8 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
   // Add cross-flavor configuration here
 
   WidgetsFlutterBinding.ensureInitialized();
+
+  await ApiKeyProvider.provideGoogleMapsApiKey();
 
   await serviceLocatorSetUp();
 

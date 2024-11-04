@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:collection/collection.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:sq1_assignment/feature/city_search/city_search.dart';
 import 'package:sq1_assignment/pagination/pagination.dart';
@@ -49,11 +50,11 @@ class CitySearchCubit extends Cubit<CitySearchState> {
       page: page,
     );
     result.when(
-      (success) => emit(
+      (paginatedCities) => emit(
         state.copyWith(
-          status: CitySearchStatus.failure,
-          cities: [...state.cities, ...success.items],
-          meta: success.meta,
+          status: CitySearchStatus.success,
+          cities: [...state.cities, ...paginatedCities.items],
+          meta: paginatedCities.meta,
           query: query,
         ),
       ),
@@ -64,5 +65,11 @@ class CitySearchCubit extends Cubit<CitySearchState> {
         ),
       ),
     );
+  }
+
+  Location? getFirstLocation() {
+    final firstCityWithLocation =
+        state.cities.firstWhereOrNull((element) => element.location != null);
+    return firstCityWithLocation?.location;
   }
 }

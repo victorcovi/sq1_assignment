@@ -5,8 +5,7 @@ class City {
     required this.id,
     required this.name,
     required this.country,
-    this.latitude,
-    this.longitude,
+    this.location,
   });
 
   factory City.fromJson(Map<String, dynamic> json) {
@@ -20,6 +19,19 @@ class City {
   final int id;
   final String name;
   final Country country;
-  final double? latitude;
-  final double? longitude;
+  final Location? location;
+
+  City copyWith({
+    int? id,
+    String? name,
+    Country? country,
+    Location? location,
+  }) {
+    return City(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      country: country ?? this.country,
+      location: location ?? this.location,
+    );
+  }
 }
