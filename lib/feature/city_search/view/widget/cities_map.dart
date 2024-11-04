@@ -35,7 +35,16 @@ class __CitiesMapViewState extends State<_CitiesMapView> {
     _addCityMarkers();
   }
 
+  @override
+  void didUpdateWidget(covariant _CitiesMapView oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.cities != widget.cities) {
+      _addCityMarkers();
+    }
+  }
+
   void _addCityMarkers() {
+    _markers.clear();
     for (final city in widget.cities) {
       if (city.location != null) {
         _markers.add(

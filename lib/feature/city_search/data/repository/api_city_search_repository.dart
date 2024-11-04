@@ -36,20 +36,7 @@ class ApiCitySearchRepository implements CitySearchRepository {
         dataContent['pagination'] as Map<String, dynamic>,
       );
 
-      print(paginationMeta.perPage);
-      print(paginationMeta.totalResults);
-
-      final citiesWithLocation = <City>[];
-
-      for (final city in cities) {
-        final cityLocationResult = await getCityLocation(city);
-        cityLocationResult.when(
-          (location) => citiesWithLocation.add(
-            city.copyWith(location: location),
-          ),
-          (error) => citiesWithLocation.add(city),
-        );
-      }
+      final citiesWithLocation = await _addLocationsToCities(cities);
 
       final paginatedCitiesWithLocation = PaginatedData(
         items: citiesWithLocation,
@@ -60,6 +47,19 @@ class ApiCitySearchRepository implements CitySearchRepository {
     } catch (e) {
       return Error(e.toString());
     }
+  }
+
+  Future<List<City>> _addLocationsToCities(List<City> cities) async {
+    final citiesWithLocation = <City>[];
+
+    for (final city in cities) {
+      final locationResult = await getCityLocation(city);
+      locationResult.when(
+        (location) => citiesWithLocation.add(city.copyWith(location: location)),
+        (error) => citiesWithLocation.add(city),
+      );
+    }
+    return citiesWithLocation;
   }
 
   @override
