@@ -13,6 +13,36 @@ A Very Good Project created with [Very Good CLI][very_good_cli_link]. Built unde
 
 ---
 
+## Project Installation & Configuration 👾
+
+For setting up flutter and development environment, recommended following this guide: [very-good-flutter-setup](https://verygood.ventures/blog/very-good-flutter-setup).
+
+### Downloading and installing project ✨
+
+```sh
+git clone https://github.com/youcardscollection/YouCards_app.git
+```
+
+```sh
+flutter pub get
+```
+
+### Setup environment folder in project root
+
+```
+YouCards_app
+|-- environment/
+  |-- dev_key.json
+  |-- prod_key.json
+  |-- stg_key.json
+|-- lib/
+...
+```
+
+[environment.zip](https://youcardscollection.slack.com/files/U05DWPVHWG3/F06532WDVBN/environment.zip)
+
+---
+
 ## Getting Started 🚀
 
 This project contains 3 flavors:
