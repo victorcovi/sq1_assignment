@@ -29,7 +29,7 @@ $ flutter run --flavor staging --target lib/main_staging.dart
 $ flutter run --flavor production --target lib/main_production.dart
 ```
 
-_\*Sq1 Assignment works on iOS, Android, Web, and Windows._
+_\*Sq1 Assignment works on iOS and Android._
 
 ---
 
