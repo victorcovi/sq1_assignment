@@ -31,7 +31,7 @@ flutter pub get
 
 Create the **environment** folder in the project root and define 3 files inside of it corresponding to the 3 different flavours.
 
-Also define a **secret.properties** file inside the android directory.
+Also before testing in Android define a **secret.properties** file inside the android directory.
 
 ```
 sq1_assignment
