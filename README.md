@@ -32,9 +32,9 @@ flutter pub get
 ```
 YouCards_app
 |-- environment/
-  |-- dev_key.json
-  |-- prod_key.json
-  |-- stg_key.json
+  |-- development_key.json
+  |-- production_key.json
+  |-- staging_key.json
 |-- lib/
 ...
 ```
