@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'city_searcher_cubit.dart';
+part of 'city_search_cubit.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,63 +15,67 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$CitySearcherState {
-  CitySearcherStatus get status => throw _privateConstructorUsedError;
+mixin _$CitySearchState {
+  CitySearchStatus get status => throw _privateConstructorUsedError;
+  CitiesDisplayType get displayType => throw _privateConstructorUsedError;
   List<City> get cities => throw _privateConstructorUsedError;
   PaginationMeta get meta => throw _privateConstructorUsedError;
   String get query => throw _privateConstructorUsedError;
-  CitiesDisplayType get displayType => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
 
-  /// Create a copy of CitySearcherState
+  /// Create a copy of CitySearchState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $CitySearcherStateCopyWith<CitySearcherState> get copyWith =>
+  $CitySearchStateCopyWith<CitySearchState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CitySearcherStateCopyWith<$Res> {
-  factory $CitySearcherStateCopyWith(
-          CitySearcherState value, $Res Function(CitySearcherState) then) =
-      _$CitySearcherStateCopyWithImpl<$Res, CitySearcherState>;
+abstract class $CitySearchStateCopyWith<$Res> {
+  factory $CitySearchStateCopyWith(
+          CitySearchState value, $Res Function(CitySearchState) then) =
+      _$CitySearchStateCopyWithImpl<$Res, CitySearchState>;
   @useResult
   $Res call(
-      {CitySearcherStatus status,
+      {CitySearchStatus status,
+      CitiesDisplayType displayType,
       List<City> cities,
       PaginationMeta meta,
       String query,
-      CitiesDisplayType displayType,
       String? message});
 }
 
 /// @nodoc
-class _$CitySearcherStateCopyWithImpl<$Res, $Val extends CitySearcherState>
-    implements $CitySearcherStateCopyWith<$Res> {
-  _$CitySearcherStateCopyWithImpl(this._value, this._then);
+class _$CitySearchStateCopyWithImpl<$Res, $Val extends CitySearchState>
+    implements $CitySearchStateCopyWith<$Res> {
+  _$CitySearchStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of CitySearcherState
+  /// Create a copy of CitySearchState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? status = null,
+    Object? displayType = null,
     Object? cities = null,
     Object? meta = null,
     Object? query = null,
-    Object? displayType = null,
     Object? message = freezed,
   }) {
     return _then(_value.copyWith(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as CitySearcherStatus,
+              as CitySearchStatus,
+      displayType: null == displayType
+          ? _value.displayType
+          : displayType // ignore: cast_nullable_to_non_nullable
+              as CitiesDisplayType,
       cities: null == cities
           ? _value.cities
           : cities // ignore: cast_nullable_to_non_nullable
@@ -84,10 +88,6 @@ class _$CitySearcherStateCopyWithImpl<$Res, $Val extends CitySearcherState>
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
               as String,
-      displayType: null == displayType
-          ? _value.displayType
-          : displayType // ignore: cast_nullable_to_non_nullable
-              as CitiesDisplayType,
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -97,47 +97,51 @@ class _$CitySearcherStateCopyWithImpl<$Res, $Val extends CitySearcherState>
 }
 
 /// @nodoc
-abstract class _$$CitySearcherStateImplCopyWith<$Res>
-    implements $CitySearcherStateCopyWith<$Res> {
-  factory _$$CitySearcherStateImplCopyWith(_$CitySearcherStateImpl value,
-          $Res Function(_$CitySearcherStateImpl) then) =
-      __$$CitySearcherStateImplCopyWithImpl<$Res>;
+abstract class _$$CitySearchStateImplCopyWith<$Res>
+    implements $CitySearchStateCopyWith<$Res> {
+  factory _$$CitySearchStateImplCopyWith(_$CitySearchStateImpl value,
+          $Res Function(_$CitySearchStateImpl) then) =
+      __$$CitySearchStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {CitySearcherStatus status,
+      {CitySearchStatus status,
+      CitiesDisplayType displayType,
       List<City> cities,
       PaginationMeta meta,
       String query,
-      CitiesDisplayType displayType,
       String? message});
 }
 
 /// @nodoc
-class __$$CitySearcherStateImplCopyWithImpl<$Res>
-    extends _$CitySearcherStateCopyWithImpl<$Res, _$CitySearcherStateImpl>
-    implements _$$CitySearcherStateImplCopyWith<$Res> {
-  __$$CitySearcherStateImplCopyWithImpl(_$CitySearcherStateImpl _value,
-      $Res Function(_$CitySearcherStateImpl) _then)
+class __$$CitySearchStateImplCopyWithImpl<$Res>
+    extends _$CitySearchStateCopyWithImpl<$Res, _$CitySearchStateImpl>
+    implements _$$CitySearchStateImplCopyWith<$Res> {
+  __$$CitySearchStateImplCopyWithImpl(
+      _$CitySearchStateImpl _value, $Res Function(_$CitySearchStateImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of CitySearcherState
+  /// Create a copy of CitySearchState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? status = null,
+    Object? displayType = null,
     Object? cities = null,
     Object? meta = null,
     Object? query = null,
-    Object? displayType = null,
     Object? message = freezed,
   }) {
-    return _then(_$CitySearcherStateImpl(
+    return _then(_$CitySearchStateImpl(
       status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as CitySearcherStatus,
+              as CitySearchStatus,
+      displayType: null == displayType
+          ? _value.displayType
+          : displayType // ignore: cast_nullable_to_non_nullable
+              as CitiesDisplayType,
       cities: null == cities
           ? _value._cities
           : cities // ignore: cast_nullable_to_non_nullable
@@ -150,10 +154,6 @@ class __$$CitySearcherStateImplCopyWithImpl<$Res>
           ? _value.query
           : query // ignore: cast_nullable_to_non_nullable
               as String,
-      displayType: null == displayType
-          ? _value.displayType
-          : displayType // ignore: cast_nullable_to_non_nullable
-              as CitiesDisplayType,
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -164,18 +164,21 @@ class __$$CitySearcherStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CitySearcherStateImpl implements _CitySearcherState {
-  const _$CitySearcherStateImpl(
+class _$CitySearchStateImpl implements _CitySearchState {
+  const _$CitySearchStateImpl(
       {required this.status,
+      this.displayType = CitiesDisplayType.list,
       final List<City> cities = const [],
       this.meta = const PaginationMeta(),
       this.query = '',
-      this.displayType = CitiesDisplayType.list,
       this.message})
       : _cities = cities;
 
   @override
-  final CitySearcherStatus status;
+  final CitySearchStatus status;
+  @override
+  @JsonKey()
+  final CitiesDisplayType displayType;
   final List<City> _cities;
   @override
   @JsonKey()
@@ -192,61 +195,54 @@ class _$CitySearcherStateImpl implements _CitySearcherState {
   @JsonKey()
   final String query;
   @override
-  @JsonKey()
-  final CitiesDisplayType displayType;
-  @override
   final String? message;
 
   @override
   String toString() {
-    return 'CitySearcherState(status: $status, cities: $cities, meta: $meta, query: $query, displayType: $displayType, message: $message)';
+    return 'CitySearchState(status: $status, displayType: $displayType, cities: $cities, meta: $meta, query: $query, message: $message)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CitySearcherStateImpl &&
+            other is _$CitySearchStateImpl &&
             (identical(other.status, status) || other.status == status) &&
+            (identical(other.displayType, displayType) ||
+                other.displayType == displayType) &&
             const DeepCollectionEquality().equals(other._cities, _cities) &&
             (identical(other.meta, meta) || other.meta == meta) &&
             (identical(other.query, query) || other.query == query) &&
-            (identical(other.displayType, displayType) ||
-                other.displayType == displayType) &&
             (identical(other.message, message) || other.message == message));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      status,
-      const DeepCollectionEquality().hash(_cities),
-      meta,
-      query,
-      displayType,
-      message);
+  int get hashCode => Object.hash(runtimeType, status, displayType,
+      const DeepCollectionEquality().hash(_cities), meta, query, message);
 
-  /// Create a copy of CitySearcherState
+  /// Create a copy of CitySearchState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$CitySearcherStateImplCopyWith<_$CitySearcherStateImpl> get copyWith =>
-      __$$CitySearcherStateImplCopyWithImpl<_$CitySearcherStateImpl>(
+  _$$CitySearchStateImplCopyWith<_$CitySearchStateImpl> get copyWith =>
+      __$$CitySearchStateImplCopyWithImpl<_$CitySearchStateImpl>(
           this, _$identity);
 }
 
-abstract class _CitySearcherState implements CitySearcherState {
-  const factory _CitySearcherState(
-      {required final CitySearcherStatus status,
+abstract class _CitySearchState implements CitySearchState {
+  const factory _CitySearchState(
+      {required final CitySearchStatus status,
+      final CitiesDisplayType displayType,
       final List<City> cities,
       final PaginationMeta meta,
       final String query,
-      final CitiesDisplayType displayType,
-      final String? message}) = _$CitySearcherStateImpl;
+      final String? message}) = _$CitySearchStateImpl;
 
   @override
-  CitySearcherStatus get status;
+  CitySearchStatus get status;
+  @override
+  CitiesDisplayType get displayType;
   @override
   List<City> get cities;
   @override
@@ -254,14 +250,12 @@ abstract class _CitySearcherState implements CitySearcherState {
   @override
   String get query;
   @override
-  CitiesDisplayType get displayType;
-  @override
   String? get message;
 
-  /// Create a copy of CitySearcherState
+  /// Create a copy of CitySearchState
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$CitySearcherStateImplCopyWith<_$CitySearcherStateImpl> get copyWith =>
+  _$$CitySearchStateImplCopyWith<_$CitySearchStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

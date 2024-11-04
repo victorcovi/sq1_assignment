@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sq1_assignment/feature/city_search/city_search.dart';
 import 'package:sq1_assignment/l10n/l10n.dart';
 
 class App extends StatelessWidget {
@@ -16,7 +17,7 @@ class App extends StatelessWidget {
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      // home: const CounterPage(),
+      home: const CitySearchPage(),
     );
   }
 }

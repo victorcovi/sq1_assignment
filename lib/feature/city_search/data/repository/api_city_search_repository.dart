@@ -1,21 +1,18 @@
 import 'package:multiple_result/multiple_result.dart';
-import 'package:sq1_assignment/feature/city_searcher/city_searcher.dart';
+import 'package:sq1_assignment/feature/city_search/city_search.dart';
 import 'package:sq1_assignment/network_service/network_service.dart';
 import 'package:sq1_assignment/pagination/pagination.dart';
 
-class ApiCitySearcherRepository implements CitySearcherRepository {
-  ApiCitySearcherRepository({
-    required Square1Client square1Client,
-    // required LocalCachingService localCachingService,
+class ApiCitySearchRepository implements CitySearchRepository {
+  ApiCitySearchRepository({
+    required Square1ApiClient square1Client,
   }) : _square1Client = square1Client;
-  // _localCachingService = localCachingService;
 
-  final Square1Client _square1Client;
-  // final LocalCachingService _localCachingService;
+  final Square1ApiClient _square1Client;
 
   @override
   Future<Result<PaginatedData<City>, String>> getCitiesByName({
-    String? name,
+    required String name,
     int? page,
   }) async {
     try {
@@ -39,15 +36,5 @@ class ApiCitySearcherRepository implements CitySearcherRepository {
     } catch (e) {
       return Error(e.toString());
     }
-  }
-
-  @override
-  Future<void> cacheCities(List<City> cities) async {
-    // _localCachingService.cacheCities(cities);
-  }
-
-  @override
-  Future<void> clearCache() async {
-    // _localCachingService.clearCache();
   }
 }

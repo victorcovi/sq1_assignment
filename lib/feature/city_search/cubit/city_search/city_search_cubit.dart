@@ -1,26 +1,26 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:sq1_assignment/feature/city_searcher/city_searcher.dart';
+import 'package:sq1_assignment/feature/city_search/city_search.dart';
 import 'package:sq1_assignment/pagination/pagination.dart';
 
-part 'city_searcher_state.dart';
-part 'city_searcher_cubit.freezed.dart';
+part 'city_search_state.dart';
+part 'city_search_cubit.freezed.dart';
 
-class CitySearcherCubit extends Cubit<CitySearcherState> {
-  CitySearcherCubit({
-    required CitySearcherRepository repository,
+class CitySearchCubit extends Cubit<CitySearchState> {
+  CitySearchCubit({
+    required CitySearchRepository repository,
   })  : _repository = repository,
-        super(const CitySearcherState(status: CitySearcherStatus.initial));
+        super(const CitySearchState(status: CitySearchStatus.initial));
 
-  final CitySearcherRepository _repository;
+  final CitySearchRepository _repository;
 
   void changeDisplayType(CitiesDisplayType type) {
     emit(state.copyWith(displayType: type));
   }
 
-  void newSearch(String query) {
+  void newCitySearch(String query) {
     if (query == state.query || query.isEmpty) return;
-    emit(const CitySearcherState(status: CitySearcherStatus.initial));
+    emit(const CitySearchState(status: CitySearchStatus.initial));
     searchCitiesByName(query: query);
   }
 
@@ -39,7 +39,7 @@ class CitySearcherCubit extends Cubit<CitySearcherState> {
   }) async {
     emit(
       state.copyWith(
-        status: CitySearcherStatus.loading,
+        status: CitySearchStatus.loading,
         query: query,
       ),
     );
@@ -51,7 +51,7 @@ class CitySearcherCubit extends Cubit<CitySearcherState> {
     result.when(
       (success) => emit(
         state.copyWith(
-          status: CitySearcherStatus.failure,
+          status: CitySearchStatus.failure,
           cities: [...state.cities, ...success.items],
           meta: success.meta,
           query: query,
@@ -59,7 +59,7 @@ class CitySearcherCubit extends Cubit<CitySearcherState> {
       ),
       (error) => emit(
         state.copyWith(
-          status: CitySearcherStatus.failure,
+          status: CitySearchStatus.failure,
           message: error,
         ),
       ),

@@ -20,6 +20,9 @@ class PaginatedData<T> {
     );
   }
 
+  factory PaginatedData.empty() =>
+      const PaginatedData(items: [], meta: PaginationMeta());
+
   final List<T> items;
   final PaginationMeta meta;
 }

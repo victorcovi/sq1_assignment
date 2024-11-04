@@ -5,11 +5,16 @@ abstract class NetworkServiceClient {
     required String baseUrl,
     Duration? sendTimeout,
     Duration? receiveTimeout,
+    List<Interceptor>? interceptors,
   }) : _httpClient = Dio() {
     _httpClient.options
       ..baseUrl = baseUrl
       ..sendTimeout = sendTimeout ?? const Duration(seconds: 12)
       ..receiveTimeout = receiveTimeout ?? const Duration(seconds: 12);
+
+    if (interceptors != null) {
+      _httpClient.interceptors.addAll(interceptors);
+    }
   }
 
   final Dio _httpClient;

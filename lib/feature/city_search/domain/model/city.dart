@@ -1,4 +1,4 @@
-import 'package:sq1_assignment/feature/city_searcher/city_searcher.dart';
+import 'package:sq1_assignment/feature/city_search/city_search.dart';
 
 class City {
   const City({
