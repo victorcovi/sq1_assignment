@@ -40,4 +40,14 @@ class ApiCitySearcherRepository implements CitySearcherRepository {
       return Error(e.toString());
     }
   }
+
+  @override
+  Future<void> cacheCities(List<City> cities) async {
+    // _localCachingService.cacheCities(cities);
+  }
+
+  @override
+  Future<void> clearCache() async {
+    // _localCachingService.clearCache();
+  }
 }

@@ -7,4 +7,6 @@ abstract class CitySearcherRepository {
     String? name,
     int? page,
   });
+  Future<void> cacheCities(List<City> cities);
+  Future<void> clearCache();
 }
