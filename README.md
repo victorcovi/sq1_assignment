@@ -30,11 +30,13 @@ flutter pub get
 ### Setup environment folder in project root
 
 ```
-YouCards_app
+sq1_assignment
 |-- environment/
   |-- development_key.json
   |-- production_key.json
   |-- staging_key.json
+|-- android/
+  |-- secret.properties
 |-- lib/
 ...
 ```
