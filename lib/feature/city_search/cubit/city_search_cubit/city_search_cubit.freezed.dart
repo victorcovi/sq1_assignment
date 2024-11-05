@@ -17,7 +17,6 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$CitySearchState {
   CitySearchStatus get status => throw _privateConstructorUsedError;
-  CitiesDisplayType get displayType => throw _privateConstructorUsedError;
   List<City> get cities => throw _privateConstructorUsedError;
   PaginationMeta get meta => throw _privateConstructorUsedError;
   String get query => throw _privateConstructorUsedError;
@@ -38,7 +37,6 @@ abstract class $CitySearchStateCopyWith<$Res> {
   @useResult
   $Res call(
       {CitySearchStatus status,
-      CitiesDisplayType displayType,
       List<City> cities,
       PaginationMeta meta,
       String query,
@@ -61,7 +59,6 @@ class _$CitySearchStateCopyWithImpl<$Res, $Val extends CitySearchState>
   @override
   $Res call({
     Object? status = null,
-    Object? displayType = null,
     Object? cities = null,
     Object? meta = null,
     Object? query = null,
@@ -72,10 +69,6 @@ class _$CitySearchStateCopyWithImpl<$Res, $Val extends CitySearchState>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as CitySearchStatus,
-      displayType: null == displayType
-          ? _value.displayType
-          : displayType // ignore: cast_nullable_to_non_nullable
-              as CitiesDisplayType,
       cities: null == cities
           ? _value.cities
           : cities // ignore: cast_nullable_to_non_nullable
@@ -106,7 +99,6 @@ abstract class _$$CitySearchStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {CitySearchStatus status,
-      CitiesDisplayType displayType,
       List<City> cities,
       PaginationMeta meta,
       String query,
@@ -127,7 +119,6 @@ class __$$CitySearchStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? status = null,
-    Object? displayType = null,
     Object? cities = null,
     Object? meta = null,
     Object? query = null,
@@ -138,10 +129,6 @@ class __$$CitySearchStateImplCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as CitySearchStatus,
-      displayType: null == displayType
-          ? _value.displayType
-          : displayType // ignore: cast_nullable_to_non_nullable
-              as CitiesDisplayType,
       cities: null == cities
           ? _value._cities
           : cities // ignore: cast_nullable_to_non_nullable
@@ -167,7 +154,6 @@ class __$$CitySearchStateImplCopyWithImpl<$Res>
 class _$CitySearchStateImpl implements _CitySearchState {
   const _$CitySearchStateImpl(
       {required this.status,
-      this.displayType = CitiesDisplayType.list,
       final List<City> cities = const [],
       this.meta = const PaginationMeta(),
       this.query = '',
@@ -176,9 +162,6 @@ class _$CitySearchStateImpl implements _CitySearchState {
 
   @override
   final CitySearchStatus status;
-  @override
-  @JsonKey()
-  final CitiesDisplayType displayType;
   final List<City> _cities;
   @override
   @JsonKey()
@@ -199,7 +182,7 @@ class _$CitySearchStateImpl implements _CitySearchState {
 
   @override
   String toString() {
-    return 'CitySearchState(status: $status, displayType: $displayType, cities: $cities, meta: $meta, query: $query, message: $message)';
+    return 'CitySearchState(status: $status, cities: $cities, meta: $meta, query: $query, message: $message)';
   }
 
   @override
@@ -208,8 +191,6 @@ class _$CitySearchStateImpl implements _CitySearchState {
         (other.runtimeType == runtimeType &&
             other is _$CitySearchStateImpl &&
             (identical(other.status, status) || other.status == status) &&
-            (identical(other.displayType, displayType) ||
-                other.displayType == displayType) &&
             const DeepCollectionEquality().equals(other._cities, _cities) &&
             (identical(other.meta, meta) || other.meta == meta) &&
             (identical(other.query, query) || other.query == query) &&
@@ -217,7 +198,7 @@ class _$CitySearchStateImpl implements _CitySearchState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, displayType,
+  int get hashCode => Object.hash(runtimeType, status,
       const DeepCollectionEquality().hash(_cities), meta, query, message);
 
   /// Create a copy of CitySearchState
@@ -233,7 +214,6 @@ class _$CitySearchStateImpl implements _CitySearchState {
 abstract class _CitySearchState implements CitySearchState {
   const factory _CitySearchState(
       {required final CitySearchStatus status,
-      final CitiesDisplayType displayType,
       final List<City> cities,
       final PaginationMeta meta,
       final String query,
@@ -241,8 +221,6 @@ abstract class _CitySearchState implements CitySearchState {
 
   @override
   CitySearchStatus get status;
-  @override
-  CitiesDisplayType get displayType;
   @override
   List<City> get cities;
   @override
