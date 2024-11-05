@@ -52,7 +52,7 @@ android {
         applicationId "com.example.verygoodcore.sq1_assignment"
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion flutter.minSdkVersion
+        minSdkVersion Math.max(21, flutter.minSdkVersion)
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -119,8 +119,7 @@ secrets {
     // The plugin defaults to "local.properties"
     propertiesFileName = "secrets.properties"
 
-    // A properties file containing default secret values. This file can be
-    // checked in version control.
+    // A properties file containing default secret values.
     defaultPropertiesFileName = "local.defaults.properties"
 
     // Configure which keys should be ignored by the plugin by providing regular expressions.

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:developer';
+import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
@@ -33,7 +34,7 @@ Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
 
   WidgetsFlutterBinding.ensureInitialized();
 
-  await ApiKeyProvider.provideGoogleMapsApiKey();
+  if (Platform.isIOS) await ApiKeyProvider.provideGoogleMapsApiKey();
 
   await serviceLocatorSetUp();
 
