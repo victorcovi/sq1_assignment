@@ -50,6 +50,23 @@ sq1_assignment
 [Download files](https://drive.proton.me/urls/CM6Y693B80#0xMaToSrri7C)
 _\*Remember to replace VALID_API_KEY_HERE with your google maps api key in the 4 files._
 
+#### development_key.json file
+```json
+{
+  "SQUARE1_URL": "http://connect-demo.mobile1.io/square1/connect/v1",
+  "GOOGLE_MAPS_URL": "https://maps.googleapis.com/maps/api",
+  "GOOGLE_MAPS_API_KEY": "VALID_API_KEY_HERE"
+}
+
+```
+
+#### secrets.properties file
+
+```properties
+MAPS_API_KEY=VALID_API_KEY_HERE
+
+```
+
 ---
 
 ## Getting Started 🚀
