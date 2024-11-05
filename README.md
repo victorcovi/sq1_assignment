@@ -29,7 +29,7 @@ flutter pub get
 
 ### Setup environments and secrets
 
-Create the **environment** folder in the project root and define 3 files inside of it corresponding to the 3 different flavours.
+Create the **environment** folder in the project root and define 3 files inside of it corresponding to the 3 different flavours (you can also download the files in the link below).
 
 Also before testing in Android define a **secret.properties** file inside the android directory.
 
@@ -45,7 +45,8 @@ sq1_assignment
 ...
 ```
 
-[environment.zip](https://youcardscollection.slack.com/files/U05DWPVHWG3/F06532WDVBN/environment.zip)
+[Download files](https://drive.proton.me/urls/CM6Y693B80#0xMaToSrri7C)
+_\*Remember to replace VALID_API_KEY_HERE with your google maps api key in the 4 files._
 
 ---
 
