@@ -35,12 +35,12 @@ Also before testing in Android define a **secret.properties** file inside the an
 
 ```
 sq1_assignment
+|-- android/
+  |-- secret.properties
 |-- environment/
   |-- development_key.json
   |-- production_key.json
   |-- staging_key.json
-|-- android/
-  |-- secret.properties
 |-- lib/
 ...
 ```
