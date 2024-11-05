@@ -17,6 +17,8 @@ A Very Good Project created with [Very Good CLI][very_good_cli_link]. Built unde
 
 For setting up flutter and development environment, recommended following this guide: [very-good-flutter-setup](https://verygood.ventures/blog/very-good-flutter-setup).
 
+_\*This project was build and tested with flutter version 3.24.4._
+
 ### Downloading and installing project ✨
 
 ```sh
