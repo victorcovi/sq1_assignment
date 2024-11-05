@@ -31,7 +31,7 @@ flutter pub get
 
 ### Setup environments and secrets
 
-Create the **environment** folder in the project root and define 3 files inside of it corresponding to the 3 different flavours (you can also download the files in the link below).
+Create the **environment** folder in the project root and define 3 files inside of it corresponding to the 3 different flavours (you can find and download the files in the link below).
 
 Also before testing in Android define a **secrets.properties** file inside the android directory.
 
