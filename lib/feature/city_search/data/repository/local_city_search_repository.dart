@@ -2,8 +2,8 @@ import 'package:multiple_result/multiple_result.dart';
 import 'package:sq1_assignment/feature/city_search/city_search.dart';
 import 'package:sq1_assignment/pagination/pagination.dart';
 
-class MockCitySearchRepository implements CitySearchRepository {
-  MockCitySearchRepository();
+class LocalCitySearchRepository implements CitySearchRepository {
+  LocalCitySearchRepository();
 
   @override
   Future<Result<PaginatedData<City>, String>> getCitiesByName({

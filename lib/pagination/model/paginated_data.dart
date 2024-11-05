@@ -25,4 +25,14 @@ class PaginatedData<T> {
 
   final List<T> items;
   final PaginationMeta meta;
+
+  PaginatedData<T> copyWith({
+    List<T>? items,
+    PaginationMeta? meta,
+  }) {
+    return PaginatedData(
+      items: items ?? this.items,
+      meta: meta ?? this.meta,
+    );
+  }
 }
