@@ -10,16 +10,23 @@ class CitiesMap extends StatelessWidget {
   Widget build(BuildContext context) {
     final cities =
         context.select((CitySearchCubit cubit) => cubit.state.cities);
-    return _CitiesMapView(cities: cities);
+    final firstLocation = context.read<CitySearchCubit>().getFirstLocation();
+
+    return _CitiesMapView(
+      cities: cities,
+      firstLocation: firstLocation,
+    );
   }
 }
 
 class _CitiesMapView extends StatefulWidget {
   const _CitiesMapView({
     required this.cities,
+    this.firstLocation,
   });
 
   final List<City> cities;
+  final Location? firstLocation;
 
   @override
   State<_CitiesMapView> createState() => __CitiesMapViewState();
@@ -40,6 +47,16 @@ class __CitiesMapViewState extends State<_CitiesMapView> {
     super.didUpdateWidget(oldWidget);
     if (oldWidget.cities != widget.cities) {
       _addCityMarkers();
+      if (widget.firstLocation != null) {
+        _mapController.animateCamera(
+          CameraUpdate.newLatLng(
+            LatLng(
+              widget.firstLocation!.latitude,
+              widget.firstLocation!.longitude,
+            ),
+          ),
+        );
+      }
     }
   }
 
@@ -69,15 +86,17 @@ class __CitiesMapViewState extends State<_CitiesMapView> {
 
   @override
   Widget build(BuildContext context) {
-    final firstLocation = context.read<CitySearchCubit>().getFirstLocation();
-
     return GoogleMap(
+      myLocationButtonEnabled: false,
       onMapCreated: (controller) {
         _mapController = controller;
       },
       initialCameraPosition: CameraPosition(
-        target: firstLocation != null
-            ? LatLng(firstLocation.latitude, firstLocation.longitude)
+        target: widget.firstLocation != null
+            ? LatLng(
+                widget.firstLocation!.latitude,
+                widget.firstLocation!.longitude,
+              )
             : const LatLng(0, 0),
         zoom: 4,
       ),
