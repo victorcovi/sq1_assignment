@@ -20,9 +20,8 @@ For setting up flutter and development environment, recommended following this g
 _\*This project was build and tested with flutter version 3.24.4._
 
 ### Downloading and installing project ✨
-
 ```sh
-git clone https://github.com/youcardscollection/YouCards_app.git
+git clone https://github.com/victorcovi/sq1_assignment.git
 ```
 
 ```sh
