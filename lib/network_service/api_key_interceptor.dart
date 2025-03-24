@@ -7,7 +7,7 @@ class ApiKeyInterceptor extends Interceptor {
 
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    options.queryParameters['apiKey'] = apiKey;
+    options.queryParameters['key'] = apiKey;
     super.onRequest(options, handler);
   }
 }

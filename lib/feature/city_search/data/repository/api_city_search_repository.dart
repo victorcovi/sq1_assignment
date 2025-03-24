@@ -13,20 +13,22 @@ class ApiCitySearchRepository implements CitySearchRepository {
   final Square1ApiClient _square1Client;
   final GoogleMapsApiClient _googleMapsApiClient;
 
+  CityResource get _cityResource => _square1Client.cityResource;
+  GeocodeResource get _geocodeResource => _googleMapsApiClient.geocodeResource;
+
   @override
   Future<Result<PaginatedData<City>, String>> getCitiesByName({
     required String name,
     int? page,
   }) async {
     try {
-      final response = await _square1Client.getCities<dynamic>(
+      final response = await _cityResource.getCities<Map<String, dynamic>>(
         name: name,
         page: page,
         include: 'country',
       );
 
-      final responseData = response.data as Map<String, dynamic>;
-      final dataContent = responseData['data'] as Map<String, dynamic>;
+      final dataContent = response.data!['data'] as Map<String, dynamic>;
 
       final cities = (dataContent['items'] as List)
           .map((e) => City.fromJson(e as Map<String, dynamic>))
@@ -50,13 +52,16 @@ class ApiCitySearchRepository implements CitySearchRepository {
   }
 
   Future<List<City>> _addLocationsToCities(List<City> cities) async {
-    final citiesWithLocation = <City>[];
+    final futures = cities.map(getCityLocation).toList();
+    final locationResults = await Future.wait(futures);
 
-    for (final city in cities) {
-      final locationResult = await getCityLocation(city);
-      locationResult.when(
-        (location) => citiesWithLocation.add(city.copyWith(location: location)),
-        (error) => citiesWithLocation.add(city),
+    final citiesWithLocation = <City>[];
+    for (var i = 0; i < cities.length; i++) {
+      locationResults[i].when(
+        (location) => citiesWithLocation.add(
+          cities[i].copyWith(location: location),
+        ),
+        (error) => citiesWithLocation.add(cities[i]),
       );
     }
     return citiesWithLocation;
@@ -65,13 +70,12 @@ class ApiCitySearchRepository implements CitySearchRepository {
   @override
   Future<Result<Location, String>> getCityLocation(City city) async {
     try {
-      final response =
-          await _googleMapsApiClient.getCoordinatesFromAddress<dynamic>(
+      final response = await _geocodeResource
+          .getCoordinatesFromAddress<Map<String, dynamic>>(
         address: '${city.name}, ${city.country.name}',
       );
 
-      final responseData = response.data as Map<String, dynamic>;
-      final results = responseData['results'] as List<dynamic>;
+      final results = response.data!['results'] as List<dynamic>;
       final firstResult = results.first as Map<String, dynamic>;
       final geometry = firstResult['geometry'] as Map<String, dynamic>;
       final location =

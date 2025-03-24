@@ -5,13 +5,17 @@ import 'package:path_provider/path_provider.dart';
 import 'package:sq1_assignment/network_service/network_service.dart';
 import 'package:sq1_assignment/pagination/pagination.dart';
 
-class Square1ApiClient extends NetworkServiceClient with CityResource {
+class Square1ApiClient extends NetworkServiceClient {
   Square1ApiClient._internal(List<Interceptor> interceptors)
       : super(
           baseUrl: const String.fromEnvironment('SQUARE1_URL'),
           interceptors: interceptors,
         );
 
+  // ==== ROUTE RESOURCES ======================================================
+  late final CityResource cityResource = CityResource(httpClient);
+
+  // ==== FACTORY METHODS ======================================================
   static Future<Square1ApiClient> create() async {
     final interceptors = await _initializeInterceptors();
     return Square1ApiClient._internal(interceptors);

@@ -4,13 +4,17 @@ import 'package:dio_cache_interceptor_hive_store/dio_cache_interceptor_hive_stor
 import 'package:path_provider/path_provider.dart';
 import 'package:sq1_assignment/network_service/network_service.dart';
 
-class GoogleMapsApiClient extends NetworkServiceClient with GeocodeResource {
+class GoogleMapsApiClient extends NetworkServiceClient {
   GoogleMapsApiClient._internal(List<Interceptor> interceptors)
       : super(
           baseUrl: const String.fromEnvironment('GOOGLE_MAPS_URL'),
           interceptors: interceptors,
         );
 
+  // ==== ROUTE RESOURCES ======================================================
+  late final GeocodeResource geocodeResource = GeocodeResource(httpClient);
+
+  // ==== FACTORY METHODS ======================================================
   static Future<GoogleMapsApiClient> create() async {
     final interceptors = await _initializeInterceptors();
     return GoogleMapsApiClient._internal(interceptors);
@@ -26,13 +30,15 @@ class GoogleMapsApiClient extends NetworkServiceClient with GeocodeResource {
 
     return [
       DioCacheInterceptor(options: cacheOptions),
-      InterceptorsWrapper(
-        onRequest: (options, handler) {
-          options.queryParameters['key'] =
-              const String.fromEnvironment('GOOGLE_MAPS_API_KEY');
-          return handler.next(options);
-        },
-      ),
+      const ApiKeyInterceptor(String.fromEnvironment('GOOGLE_MAPS_API_KEY')),
+      // TODO(victorcovi): Delete if ApiKeyInterceptor works
+      // InterceptorsWrapper(
+      //   onRequest: (options, handler) {
+      //     options.queryParameters['key'] =
+      //         const String.fromEnvironment('GOOGLE_MAPS_API_KEY');
+      //     return handler.next(options);
+      //   },
+      // ),
     ];
   }
 
