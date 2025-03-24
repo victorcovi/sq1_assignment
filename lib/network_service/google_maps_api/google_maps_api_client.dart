@@ -16,8 +16,7 @@ class GoogleMapsApiClient extends NetworkServiceClient {
 
   // ==== FACTORY METHODS ======================================================
   static Future<GoogleMapsApiClient> create() async {
-    final interceptors = await _initializeInterceptors();
-    return GoogleMapsApiClient._internal(interceptors);
+    return GoogleMapsApiClient._internal(await _initializeInterceptors());
   }
 
   static Future<List<Interceptor>> _initializeInterceptors() async {
@@ -28,17 +27,9 @@ class GoogleMapsApiClient extends NetworkServiceClient {
       maxStale: const Duration(days: 10),
     );
 
-    return [
+    return <Interceptor>[
       DioCacheInterceptor(options: cacheOptions),
       const ApiKeyInterceptor(String.fromEnvironment('GOOGLE_MAPS_API_KEY')),
-      // TODO(victorcovi): Delete if ApiKeyInterceptor works
-      // InterceptorsWrapper(
-      //   onRequest: (options, handler) {
-      //     options.queryParameters['key'] =
-      //         const String.fromEnvironment('GOOGLE_MAPS_API_KEY');
-      //     return handler.next(options);
-      //   },
-      // ),
     ];
   }
 

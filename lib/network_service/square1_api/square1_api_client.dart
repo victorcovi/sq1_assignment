@@ -17,8 +17,7 @@ class Square1ApiClient extends NetworkServiceClient {
 
   // ==== FACTORY METHODS ======================================================
   static Future<Square1ApiClient> create() async {
-    final interceptors = await _initializeInterceptors();
-    return Square1ApiClient._internal(interceptors);
+    return Square1ApiClient._internal(await _initializeInterceptors());
   }
 
   static Future<List<Interceptor>> _initializeInterceptors() async {
@@ -29,7 +28,7 @@ class Square1ApiClient extends NetworkServiceClient {
       maxStale: const Duration(days: 10),
     );
 
-    return [
+    return <Interceptor>[
       DioCacheInterceptor(options: cacheOptions),
     ];
   }
