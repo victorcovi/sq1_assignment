@@ -14,16 +14,16 @@ on:
 
 jobs:
   semantic-pull-request:
-    uses: victorcovi/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
+    uses: victorcovi/very_good_workflows/.github/workflows/semantic_pull_request.yml@main
 
   build:
-    uses: victorcovi/very_good_workflows/.github/workflows/flutter_package.yml@v1
+    uses: victorcovi/very_good_workflows/.github/workflows/flutter_package.yml@main
     with:
       flutter_channel: stable
       min_coverage: 10
 
   spell-check:
-    uses: victorcovi/very_good_workflows/.github/workflows/spell_check.yml@v1
+    uses: victorcovi/very_good_workflows/.github/workflows/spell_check.yml@main
     with:
       includes: |
         **/*.md
