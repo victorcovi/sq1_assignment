@@ -8,19 +8,31 @@ on:
   push:
     branches:
       - main
+      - development
   pull_request:
     branches:
       - main
+      - development
 
 jobs:
   semantic-pull-request:
     uses: victorcovi/very_good_workflows/.github/workflows/semantic_pull_request.yml@main
 
   build:
-    uses: victorcovi/very_good_workflows/.github/workflows/flutter_package.yml@main
-    with:
-      flutter_channel: stable
-      min_coverage: 10
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Read Flutter version from .fvmrc
+        id: get_fvm_version
+        run: echo "flutter_version=$(cat .fvmrc)" >> $GITHUB_OUTPUT
+
+      - name: Run Flutter package workflow
+        uses: victorcovi/very_good_workflows/.github/workflows/flutter_package.yml@main
+        with:
+          flutter_version: ${{ steps.get_fvm_version.outputs.flutter_version }}
+          min_coverage: 10
 
   spell-check:
     uses: victorcovi/very_good_workflows/.github/workflows/spell_check.yml@main
