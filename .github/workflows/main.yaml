@@ -18,21 +18,24 @@ jobs:
   semantic-pull-request:
     uses: victorcovi/very_good_workflows/.github/workflows/semantic_pull_request.yml@main
 
-  build:
+  read-version:
     runs-on: ubuntu-latest
+    outputs:
+      flutter_version: ${{ steps.read_version.outputs.flutter_version }}
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Read Flutter version from .fvmrc
-        id: get_fvm_version
-        run: echo "flutter_version=$(cat .fvmrc)" >> $GITHUB_OUTPUT
+      - id: read_version
+        name: Read Flutter version from .fvmrc
+        run: echo "::set-output name=flutter_version::$(cat .fvmrc)"
 
-      - name: Run Flutter package workflow
-        uses: victorcovi/very_good_workflows/.github/workflows/flutter_package.yml@main
-        with:
-          flutter_version: ${{ steps.get_fvm_version.outputs.flutter_version }}
-          min_coverage: 10
+  build:
+    needs: read-version
+    uses: victorcovi/very_good_workflows/.github/workflows/flutter_package.yml@main
+    with:
+      flutter_version: ${{ needs.read-version.outputs.flutter_version }}
+      min_coverage: 10
 
   spell-check:
     uses: victorcovi/very_good_workflows/.github/workflows/spell_check.yml@main
