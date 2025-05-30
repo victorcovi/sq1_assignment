@@ -8,7 +8,7 @@ A Very Good Project created with [Very Good CLI][very_good_cli_link]. Built unde
 <br>
 
 <p align="center">
-<a href="https://bloclibrary.dev/#/architecture"><img src="https://bloclibrary.dev/_astro/bloc_architecture_full.CYn-T9Ox_Z20Hwr9.webp" alt="Bloc Architecture"></a>
+<a href="https://bloclibrary.dev/#/architecture"><img src="https://bloclibrary.dev/_astro/bloc_architecture_full.CYn-T9Ox_emLFv.webp" alt="Bloc Architecture"></a>
 </p>
 
 ---
