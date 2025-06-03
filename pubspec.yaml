@@ -27,6 +27,7 @@ dependencies:
 dev_dependencies:
   bloc_test: ^9.1.7
   build_runner: ^2.4.13
+  commitlint_cli: ^0.8.1
   flutter_test:
     sdk: flutter
   freezed: ^2.5.8
