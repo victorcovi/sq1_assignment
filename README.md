@@ -1,6 +1,7 @@
 # Sq1 Assignment
 
 <!-- ![coverage][coverage_badge] -->
+
 [![style: very good analysis][very_good_analysis_badge]][very_good_analysis_link]
 [![License: MIT][license_badge]][license_link]
 
@@ -13,19 +14,64 @@ A Very Good Project created with [Very Good CLI][very_good_cli_link]. Built unde
 
 ---
 
-## Project Installation & Configuration 👾
+## Flutter Installation & Configuration 👾
 
-For setting up flutter and development environment, recommended following this guide: [very-good-flutter-setup](https://verygood.ventures/blog/very-good-flutter-setup).
+For setting up flutter we recommend following this guide: [very-good-flutter-setup](https://verygood.ventures/blog/very-good-flutter-setup).
 
-_\*This project was build and tested with flutter version 3.24.4._
+### Downloading and installing project 🧑‍💻
 
-### Downloading and installing project ✨
+Clone the project repository (choose one):
+
 ```sh
+# Using SSH
+git clone git@github.com:victorcovi/sq1_assignment.git
+```
+
+or
+
+```sh
+# Using HTTPS
 git clone https://github.com/victorcovi/sq1_assignment.git
 ```
 
+Then, navigate into the project folder:
+
 ```sh
-flutter pub get
+cd sq1_assignment
+```
+
+Install **FVM** (Flutter Version Management) globally to manage Flutter SDK versions easily:
+
+```sh
+dart pub global activate fvm
+```
+
+Use FVM to install the Flutter version specified in the `.fvmrc` file (this installs Flutter locally to the project):
+
+```sh
+fvm install
+```
+
+> ⚠️ After running `fvm install`, it is likely necessary to restart VSCode or at least its terminal for the changes to take effect and for VSCode to use the FVM-installed Flutter version properly.
+
+Install the **Very Good CLI** globally to assist with project tasks:
+
+```sh
+dart pub global activate very_good_cli
+```
+
+### Downloading and installing project dependencies ✨
+
+Fetch all packages recursively using the Very Good CLI:
+
+```sh
+very_good packages get -r
+```
+
+Finally, install Husky git hooks:
+
+```sh
+dart run husky install
 ```
 
 ### Setup environments and secrets
@@ -47,16 +93,16 @@ sq1_assignment
 ```
 
 [Download files](https://drive.proton.me/urls/CM6Y693B80#0xMaToSrri7C)
-_\*Remember to replace VALID_API_KEY_HERE with your google maps api key in the 4 files._
+_\*Remember to replace VALID_API_KEY_HERE with your google maps api key in the all files._
 
 #### development_key.json file
+
 ```json
 {
   "SQUARE1_URL": "http://connect-demo.mobile1.io/square1/connect/v1",
   "GOOGLE_MAPS_URL": "https://maps.googleapis.com/maps/api",
   "GOOGLE_MAPS_API_KEY": "VALID_API_KEY_HERE"
 }
-
 ```
 
 #### secrets.properties file
