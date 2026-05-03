@@ -8,8 +8,11 @@
 A Very Good Project created with [Very Good CLI][very_good_cli_link]. Built under [BloC](https://bloclibrary.dev/architecture/) architecture.  
 <br>
 
-<p align="center">
-<a href="https://bloclibrary.dev/#/architecture"><img src="https://bloclibrary.dev/_astro/bloc_architecture_full.CYn-T9Ox_emLFv.webp" alt="Bloc Architecture"></a>
+## App preview
+
+<p float="left">
+  <img width="400" alt="image" src="https://github.com/user-attachments/assets/1d485d20-5a43-4dc5-b53c-26122e8bced4" />
+  <img width="400" alt="image" src="https://github.com/user-attachments/assets/c02c36c2-319d-4f14-90d2-ce0f5468d93f" />
 </p>
 
 ---
